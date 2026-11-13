@@ -1,0 +1,92 @@
+{
+  "total_rows": 250000,
+  "total_fraud": 1215,
+  "overall_fraud_rate_pct": 0.486,
+  "risk_rows": 108922,
+  "risk_fraud": 1215,
+  "risk_fraud_rate_pct": 1.115477130423606,
+  "train_rows": 76245,
+  "train_fraud": 828,
+  "val_rows": 16338,
+  "val_fraud": 208,
+  "test_rows": 16339,
+  "test_fraud": 179,
+  "flagged_tp": 1,
+  "flagged_fp": 0,
+  "flagged_fn": 1214,
+  "type_summary": [
+    {
+      "type": "CASH_IN",
+      "total_tx": 55018,
+      "fraud_tx": 0,
+      "mean_amount": 148452.96660820095,
+      "median_amount": 98810.91500000001,
+      "fraud_rate_pct": 0.0
+    },
+    {
+      "type": "CASH_OUT",
+      "total_tx": 87863,
+      "fraud_tx": 615,
+      "mean_amount": 185477.71848161344,
+      "median_amount": 109588.43,
+      "fraud_rate_pct": 0.6999533364442371
+    },
+    {
+      "type": "DEBIT",
+      "total_tx": 1648,
+      "fraud_tx": 0,
+      "mean_amount": 5855.8297936893205,
+      "median_amount": 3542.665,
+      "fraud_rate_pct": 0.0
+    },
+    {
+      "type": "PAYMENT",
+      "total_tx": 84412,
+      "fraud_tx": 0,
+      "mean_amount": 12121.563021726768,
+      "median_amount": 6651.41,
+      "fraud_rate_pct": 0.0
+    },
+    {
+      "type": "TRANSFER",
+      "total_tx": 21059,
+      "fraud_tx": 600,
+      "mean_amount": 543768.6872676766,
+      "median_amount": 247008.62,
+      "fraud_rate_pct": 2.8491381357139467
+    }
+  ],
+  "num_features": [
+    "amount",
+    "oldbalanceOrg",
+    "newbalanceOrig",
+    "oldbalanceDest",
+    "newbalanceDest",
+    "errorBalanceOrig",
+    "errorBalanceDest",
+    "balanceDeltaOrig",
+    "balanceDeltaDest",
+    "amt_to_bal_ratio",
+    "orig_emptied",
+    "dest_zero_before",
+    "hour_sin",
+    "hour_cos",
+    "is_transfer"
+  ],
+  "clean_features": [
+    "amount",
+    "oldbalanceOrg",
+    "newbalanceOrig",
+    "oldbalanceDest",
+    "newbalanceDest",
+    "balanceDeltaOrig",
+    "balanceDeltaDest",
+    "amt_to_bal_ratio",
+    "orig_emptied",
+    "dest_zero_before",
+    "hour_sin",
+    "hour_cos",
+    "is_transfer"
+  ],
+  "source_description": "Calibrated PaySim Dataset (250,000 rows)"
+}
