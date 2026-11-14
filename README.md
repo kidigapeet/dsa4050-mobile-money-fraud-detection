@@ -21,13 +21,11 @@ All models, scalers, SHAP background samples, notebooks, and figures are **alrea
 py -3.12 -m streamlit run app/dashboard.py
 ```
 
-### 2. Open the Executed Presentation Notebooks (Parts A, B, C)
+### 2. Open the Executed Master Presentation Notebook (Parts A, B, C & D)
 ```powershell
-py -3.12 -m jupyter notebook notebooks/
+py -3.12 -m jupyter notebook notebooks/Fraud_Detection_Complete_Project.ipynb
 ```
-- `notebooks/01_EDA_PaySim_Mining.ipynb` — Part (B) Data Mining & Class Presentation Visuals
-- `notebooks/02_Classical_ML_Baselines.ipynb` — Part (C) Classical ML Baselines, SMOTE & Accuracy Paradox
-- `notebooks/03_Deep_Learning_AE_MLP.ipynb` — Parts (A & C) Deep Autoencoder, Entity-Embedding MLP & Full Benchmark
+- `notebooks/Fraud_Detection_Complete_Project.ipynb` — **Single unified notebook** covering Part (A) Deep Learning Architecture & Justification, Part (B) PaySim Data Mining & EDA, Part (C) Classical ML vs. Deep Learning Benchmarking & The Accuracy Paradox, and Part (D) Live Transaction Simulator & SHAP Explainability Demo.
 
 ### 3. Re-Run the Entire Pipeline from Scratch (Optional)
 If you download the full 470 MB Kaggle PaySim CSV from **https://www.kaggle.com/datasets/ealaxi/paysim1** and place `PS_20174392719_1491204439457_log.csv` inside `data/raw/` (or use the built-in calibrated PaySim dataset in `data/raw/paysim_calibrated_sample.parquet`), run:
