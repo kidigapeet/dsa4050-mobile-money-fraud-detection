@@ -640,12 +640,52 @@ def main() -> None:
     )
 
     # =========================================================================
-    # SLIDE 12 — Conclusion & Operational Recommendations
+    # SLIDE 12 — Part (D): How to Explain & Demo the Sidebar Options Live
+    # =========================================================================
+    s_demo = prs.slides.add_slide(blank)
+    add_header(
+        s_demo,
+        "11. Part (D): Live Simulator Sidebar Controls & Presenter Guide",
+        "What each interactive input does and how it drives Deep Learning & SHAP scoring",
+        "Part D · Demo Guide",
+    )
+    add_card(
+        s_demo, 0.45, 1.30, 6.05, 5.75,
+        "Sidebar Controls Explained (Left Panel)",
+        [
+            "1. 1-Click Demo Preset: Instant switch between 5 scenarios (Classic 02:00 AM Account Drain, Mule Cash-Out Sweep, 94% Structuring Near-Drain, Normal Daytime Cash-Out, Merchant Payment).",
+            "2. Transaction Type (CASH_IN, CASH_OUT, DEBIT, PAYMENT, TRANSFER): Proves our Part B domain discovery — switching from TRANSFER/CASH_OUT to CASH_IN or PAYMENT drops fraud risk to ~0%.",
+            "3. Transaction Amount ($) & Origin Balances: Computes depletion ratio (amt_to_bal_ratio = Amount / OldBalance) and account-emptying flag (orig_emptied = 1 when NewBalance = $0).",
+            "4. Hour of Day (00:00–23:00): Feeds our 6-D PyTorch hour_emb layer + cyclical sine/cosine features (captures 00:00–05:00 nocturnal bot attacks).",
+            "5. Destination Balances & Primary Scoring Engine: Detects zero-balance mule layering (errorBalanceDest) and lets the user compare Hybrid Ensemble vs. single models.",
+        ],
+        BLUE_ACCENT,
+        font_size=11.5,
+    )
+    add_card(
+        s_demo, 6.75, 1.30, 6.13, 5.75,
+        "60-Second Live Class Demo Script (3 Clicks)",
+        [
+            "Step 1 — Trigger an Attack (Preset: Classic Account-Draining Transfer):",
+            "  • Show Red Gauge (100% Fraud — BLOCK) scored in <10 ms.",
+            "  • Point out $485,000 drained to $0 at 02:00 AM into a $0 mule account.",
+            "Step 2 — Explain 'Why' (SHAP Waterfall & Autoencoder Plot):",
+            "  • Red SHAP bars show errorBalanceDest, amt_to_bal_ratio = 1.0, and orig_emptied = 1 pushing log-odds toward Fraud.",
+            "  • Autoencoder MSE = 43.93 sits far right of the normal manifold threshold (MSE = 4.65) — caught without fraud labels!",
+            "Step 3 — Show Legitimate Approval (Preset: Normal Daytime Cash-Out):",
+            "  • Gauge drops to 0% Green (APPROVE), SHAP bars turn blue, and AE MSE drops to 0.08 inside the normal blue curve.",
+        ],
+        GREEN_ACCENT,
+        font_size=11.5,
+    )
+
+    # =========================================================================
+    # SLIDE 13 — Conclusion & Operational Recommendations
     # =========================================================================
     s12 = prs.slides.add_slide(blank)
     add_header(
         s12,
-        "11. Conclusion, Production Policy & Live Demonstration",
+        "12. Conclusion, Production Policy & Live Demonstration",
         "Summary of achievements across Parts (A), (B), (C), and (D)",
         "Conclusion & Demo",
     )
@@ -679,8 +719,10 @@ def main() -> None:
     )
 
     out_path = WRITEUP_DIR / "Fraud_Detection_Presentation.pptx"
+    root_copy = ROOT / "Fraud_Detection_Presentation.pptx"
     prs.save(str(out_path))
-    print(f"[generate_slides] Saved 12-slide PowerPoint presentation: {out_path}")
+    prs.save(str(root_copy))
+    print(f"[generate_slides] Saved 13-slide PowerPoint presentation: {out_path} and {root_copy}")
 
 
 if __name__ == "__main__":
